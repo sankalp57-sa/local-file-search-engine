@@ -19,6 +19,14 @@ struct SearchResult {
 
 vector<SearchResult> results;
 
+string escapePath(const string& input) {
+    string output = input;
+    for (char& c : output) {
+        if (c == '\\') c = '/';
+    }
+    return output;
+}
+
 int main() {
     return 0;
 }
