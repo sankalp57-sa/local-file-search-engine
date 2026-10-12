@@ -1,0 +1,17 @@
+# Executables and compiler artifacts
+*.exe
+*.obj
+*.o
+*.out
+*.dll
+main.exe
+
+# Temporary files and backups
+_backup/
+*.tmp
+*.bak
+*.log
+
+# IDE & Editor settings
+.vscode/
+.idea/
