@@ -11,6 +11,14 @@ using namespace std;
 namespace fs = filesystem;
 using json = nlohmann::json;
 
+struct SearchResult {
+    string name;
+    string path;
+    string date;
+};
+
+vector<SearchResult> results;
+
 int main() {
     return 0;
 }
