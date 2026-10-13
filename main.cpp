@@ -49,6 +49,25 @@ string getFileTime(const fs::directory_entry& entry) {
     }
 }
 
+void scanDirectory(const string& path) {
+    try {
+        for (const auto& entry : fs::recursive_directory_iterator(path, fs::directory_options::skip_permission_denied)) {
+            try {
+                if (entry.is_regular_file()) {
+                    string fullPath = fs::absolute(entry.path()).string();
+                    results.push_back({
+                        entry.path().filename().string(),
+                        fullPath,
+                        getFileTime(entry)
+                    });
+                }
+            } catch (...) { continue; }
+        }
+    } catch (const std::exception& e) {
+        cerr << "Error: " << e.what() << endl;
+    }
+}
+
 int main() {
     return 0;
 }
