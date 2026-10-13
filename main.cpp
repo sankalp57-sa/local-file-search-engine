@@ -19,6 +19,7 @@ struct SearchResult {
 
 vector<SearchResult> results;
 
+
 string escapePath(const string& input) {
     string output = input;
     for (char& c : output) {
@@ -26,6 +27,7 @@ string escapePath(const string& input) {
     }
     return output;
 }
+
 
 string getFileTime(const fs::directory_entry& entry) {
     try {
@@ -60,6 +62,7 @@ void saveResults(double duration) {
         });
     }
 
+    
     json output;
     output["scanDuration"] = duration; 
     output["files"] = allResults;     
@@ -89,5 +92,27 @@ void scanDirectory(const string& path) {
 }
 
 int main() {
-    return 0;
+    results.clear(); 
+    string folder;
+    cout << "Enter folder path to scan: ";
+    getline(cin, folder);
+
+    if (!fs::exists(folder)) {
+        cout << "Folder not found!\n";
+        return 1;
+    }
+
+    auto start = chrono::high_resolution_clock::now();
+
+    scanDirectory(folder);
+    
+     auto end = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = end - start;
+ saveResults(elapsed.count());
+ cout << "--------------------------------------\n";
+    cout << "Scan Complete!\n";
+    cout << "Files found: " << results.size() << "\n";
+    cout << "Time taken: " << elapsed.count() << " seconds\n";
+    cout << "--------------------------------------\n";
+ return 0;
 }
