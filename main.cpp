@@ -49,6 +49,26 @@ string getFileTime(const fs::directory_entry& entry) {
     }
 }
 
+void saveResults(double duration) {
+    json allResults = json::array();
+
+    for (const auto& r : results) {
+        allResults.push_back({
+            {"name", r.name},
+            {"path", "file:///" + escapePath(r.path)},
+            {"date", r.date}
+        });
+    }
+
+    json output;
+    output["scanDuration"] = duration; 
+    output["files"] = allResults;     
+
+    ofstream out("results.json");
+    out << output.dump(4);
+    out.close();
+}
+
 void scanDirectory(const string& path) {
     try {
         for (const auto& entry : fs::recursive_directory_iterator(path, fs::directory_options::skip_permission_denied)) {
