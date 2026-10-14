@@ -32,3 +32,15 @@ h1 {
     font-size: 0.9em;
     margin-bottom: 20px;
 }
+
+/* NEW: Frontend Search Timer */
+#searchTime {
+    text-align: center;
+    color: #ffd700; /* Gold color to make it pop */
+    font-weight: bold;
+    font-size: 0.95em;
+    min-height: 20px; /* Prevents jumping when text appears */
+    margin-top: -30px; /* Pull it closer to search bar */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
