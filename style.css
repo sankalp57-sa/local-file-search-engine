@@ -110,3 +110,12 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.file-card .date {
+    font-size: 0.75em;
+    color: #999;
+    text-align: right;
+    margin-top: auto;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+}
