@@ -100,3 +100,13 @@ h1 {
 .file-card a:hover {
     color: #6c5ce7;
 }
+
+.file-card .path {
+    display: block;
+    color: #636e72;
+    font-size: 0.85em;
+    margin-bottom: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
