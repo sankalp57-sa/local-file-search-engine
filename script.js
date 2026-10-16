@@ -39,3 +39,9 @@ function displayResults(list) {
     resultsDiv.appendChild(div);
   });
 }
+
+document.getElementById("searchBar").addEventListener("input", function () {
+  const query = this.value.toLowerCase();
+  const filtered = files.filter(file => file.name.toLowerCase().includes(query));
+  displayResults(filtered);
+});
