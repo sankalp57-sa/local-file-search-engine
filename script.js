@@ -15,3 +15,8 @@ fetch(`results.json?t=${timestamp}`)
     }
   })
   .catch(err => console.error("Error:", err));
+
+function displayResults(list) {
+  const resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = "";
+}
