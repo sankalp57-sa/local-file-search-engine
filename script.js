@@ -13,6 +13,7 @@ fetch(`results.json?t=${timestamp}`)
     } else {
         files = data; 
     }
+    displayResults(files);
   })
   .catch(err => console.error("Error:", err));
 
@@ -24,4 +25,17 @@ function displayResults(list) {
     resultsDiv.innerHTML = "<p style='color:white; text-align:center; grid-column: 1 / -1;'>No matching files found.</p>";
     return;
   }
+
+  list.forEach(file => {
+    const div = document.createElement("div");
+    div.className = "file-card";
+    const dateText = file.date ? file.date : "Unknown Date";
+
+    div.innerHTML = `
+      <a href="${file.path}" target="_blank">📄 ${file.name}</a>
+      <span class="path" title="${file.path}">📂 ${file.path}</span>
+      <span class="date">🕒 Modified: ${dateText}</span>
+    `;
+    resultsDiv.appendChild(div);
+  });
 }
