@@ -19,4 +19,9 @@ fetch(`results.json?t=${timestamp}`)
 function displayResults(list) {
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = "";
+
+  if (!list || list.length === 0) {
+    resultsDiv.innerHTML = "<p style='color:white; text-align:center; grid-column: 1 / -1;'>No matching files found.</p>";
+    return;
+  }
 }
