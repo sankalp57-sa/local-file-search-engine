@@ -1,5 +1,6 @@
 let files = [];
 
+
 const timestamp = new Date().getTime();
 fetch(`results.json?t=${timestamp}`)
   .then(response => response.json())
@@ -40,8 +41,25 @@ function displayResults(list) {
   });
 }
 
+
 document.getElementById("searchBar").addEventListener("input", function () {
+  
+  const start = performance.now();
+
   const query = this.value.toLowerCase();
   const filtered = files.filter(file => file.name.toLowerCase().includes(query));
+  
   displayResults(filtered);
+
+  
+  const end = performance.now();
+  const duration = (end - start).toFixed(3); 
+
+  
+  const stats = document.getElementById("searchTime");
+  if (query === "") {
+    stats.innerText = ""; 
+  } else {
+    stats.innerText = `Found ${filtered.length} files in ${duration} milliseconds`;
+  }
 });
