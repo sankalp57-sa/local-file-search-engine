@@ -67,3 +67,10 @@ Serve the application locally to prevent CORS restrictions on JSON fetch:
 python -m http.server 8000
 ```
 Open **[http://localhost:8000](http://localhost:8000)** in your browser to search files!
+
+---
+
+## 👨‍💻 Author
+
+**Sankalp**
+- GitHub: [@sankalp57-sa](https://github.com/sankalp57-sa)
