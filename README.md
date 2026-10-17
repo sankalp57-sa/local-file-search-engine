@@ -32,3 +32,38 @@ A blazingly fast local desktop file search engine combining an optimized **C++17
 | (HTML5 / CSS3 / JS)   |                               +-------------------------+
 +-----------------------+
 ```
+
+---
+
+## 🛠️ Getting Started
+
+### 1. Prerequisites
+- **C++ Compiler**: GCC (MinGW / g++), Clang, or MSVC supporting C++17.
+- **Web Browser**: Chrome, Edge, Firefox, or Safari.
+- **HTTP Server**: Python 3 (`python -m http.server`) or Node.js.
+
+### 2. Compile the C++ Scanner
+```bash
+g++ -std=c++17 -O3 main.cpp -o main.exe
+```
+
+### 3. Scan a Directory
+Run the compiled executable and enter the path of any target folder:
+```cmd
+.\main.exe
+```
+```text
+Enter folder path to scan: C:\Users\sankalp\Documents
+--------------------------------------
+Scan Complete!
+Files found: 1542
+Time taken: 0.042 seconds
+--------------------------------------
+```
+
+### 4. Launch the Web UI
+Serve the application locally to prevent CORS restrictions on JSON fetch:
+```cmd
+python -m http.server 8000
+```
+Open **[http://localhost:8000](http://localhost:8000)** in your browser to search files!
