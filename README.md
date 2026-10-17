@@ -15,3 +15,20 @@ A blazingly fast local desktop file search engine combining an optimized **C++17
 - **📂 File Metadata**: Displays file modification timestamps, formatted disk paths, and direct clickable links.
 - **🎨 Glassmorphic Interface**: Responsive CSS Grid design with sleek hover effects, dark gradients, and responsive layouts.
 - **🔄 Zero-Dependency Frontend**: Pure HTML5, CSS3, and JavaScript without external runtime frameworks.
+
+---
+
+## 🏛️ System Architecture
+
+```text
++-----------------------+        Traverse & Index       +-------------------------+
+| Local Disk Directory  |  ==========================>  | C++ Scanner (main.exe)  |
++-----------------------+                               +-------------------------+
+                                                                     |
+                                                                     | Generates JSON
+                                                                     v
++-----------------------+        Asynchronous Fetch     +-------------------------+
+| Modern Web UI         |  <==========================  |      results.json       |
+| (HTML5 / CSS3 / JS)   |                               +-------------------------+
++-----------------------+
+```
