@@ -74,3 +74,9 @@ Open **[http://localhost:8000](http://localhost:8000)** in your browser to searc
 
 **Sankalp**
 - GitHub: [@sankalp57-sa](https://github.com/sankalp57-sa)
+
+---
+
+## ❓ Troubleshooting
+- **CORS Error on file:// protocol**: Browsers block direct `fetch()` requests on the `file://` scheme. Always run via `python -m http.server` or a local web server.
+- **Large Directories**: Scanning root drives (`C:\`) may take longer due to system-protected directories. Use specific folders for optimal performance.
